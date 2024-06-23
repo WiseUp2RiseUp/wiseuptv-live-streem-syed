@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?v=1.0.37" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css?v=1.0.37"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="../style.css?v=1.0.37" rel="stylesheet">
+    <link href="../css/host.css?v=1.0.37" rel="stylesheet">
+    <link href="../css/switch.css?v=1.0.37" rel="stylesheet">
+    <link href="#" rel="shortcut icon">
+    <title>Conference</title>
+
+</head>
+
+<body>
+
+    <div class="topheader text-left">
+        <a href="https://wiseup.club" class="logo"><img src="https://wiseup.club/themes/wiseup/img/logo.png" alt="Logo"></a>
+
+        <br class="d-block d-sm-none">
+
+        <button hidden id="AVM" class="btn btn-primary mt-1">All</button>
+        <button hidden id="SVM" class="btn btn-primary mt-1">Single</button>
+        <button hidden id="HGM" class="btn btn-primary mt-1">Guest</button>
+        <button hidden id="PNP" class="btn btn-primary mt-1">PnP</button>
+        <button hidden id="SPM" class="btn btn-primary mt-1">Selected</button>
+
+        <div hidden class="btn-group p-list mt-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Choose participant
+            </button>
+            <ul id="participants" class="dropdown-menu">
+            </ul>
+        </div>
+
+        <div hidden class="btn-group p-list mt-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Change video source
+            </button>
+            <ul id="video-sources" class="dropdown-menu">
+            </ul>
+        </div>
+
+        <div hidden class="btn-group p-list mt-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Change audio source
+            </button>
+            <ul id="audio-sources" class="dropdown-menu">
+            </ul>
+        </div>
+
+        <button hidden id="create" class="btn btn-success mt-1">New Conference</button>
+        <button hidden id="reporting" class="btn btn-success mt-1">Reporting</button>
+        <button id="ipcam" class="btn btn-warning mt-1">IP Cam</button>
+        <button id="link" class="btn btn-info mt-1" title="Copy session link"><i class="fa fa-copy"></i></button>
+        <button hidden id="watch" class="btn btn-info mt-1" title="Watch broadcast"><i class="fa fa-bullhorn"></i></button>
+        <button id="leave" class="btn btn-danger mt-1" title="Leave"><i
+            class="fa fa-right-from-bracket"></i></button>
+        <span class="link"></span>
+    </div>
+
+    <span hidden class="badge bg-info rounded-pill-show" style="position: fixed; right: 0; top: 65px; z-index: 987987;">Hide/Show</span>
+    <div hidden id="active-sessions" style="position: fixed; right: 0; top: 63px; background-color: azure;z-index: 88;">
+        <h1>
+            Active Sesssions
+        </h1>
+        <hr>
+        <h3>Total active sessions: <span class="total-sessions"></span>
+            <span class="badge bg-info rounded-pill reload">Reload</span>
+        </h3>
+        <ol class="list-group list-group-numbered sessions-list"></ol>
+    </div>
+
+    <div id="container" class="video_conference_left_top">
+        <video autoplay playsinline="true" muted></video>
+      </div>
+
+      <div class="video_conference_left_bottom">
+        <div id="smallVideos" class="video_conference_thumb_box"></div>
+        <div class="clearfix"></div>
+      </div>
+
+    <div class="clearfix"></div>
+    <div class="footer text-center mt-3">
+        <p>© 2022. All rights reserved. </p>
+    </div>
+
+    <!-- Loading modal -->
+    <div id="loadingModal" class="modal fade bd-loading-modal-lg" role="dialog" data-backdrop="static"
+        data-bs-backdrop="static" data-keyboard="false" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-body">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <span class="text-info loading-title">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?v=1.0.37"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?v=1.0.37"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="../js/browser.js?v=1.0.37"></script>
+    <script src="../js/loading.js?v=1.0.37"></script>
+    <script src="../js/vars.js?v=1.0.37"></script>
+    <script src="../js/common.js?v=1.0.37"></script>
+    <script src="../js/switching/join.js?v=1.0.37"></script>
+    <script src="../js/switching/switch.js?v=1.0.37"></script>
+    <!-- <script src="../js/switching/sessions.js?v=1.0.37"></script> -->
+</body>
+
+</html>

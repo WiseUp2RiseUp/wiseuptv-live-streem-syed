@@ -1,0 +1,219 @@
+.userlistright {
+    position: fixed;
+    right: 50px;
+    bottom: 0;
+    z-index: 99;
+    width: 380px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px 10px 0 0;
+    padding: 0px 0 15px 0;
+    transition: all 0.5s ease;
+}
+
+.userlistinner {
+    height: 300px;
+    overflow: auto;
+}
+
+
+.userlistright ul {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.userlistright ul li {
+    color: #000;
+    list-style: none;
+    padding: 0 15px;
+
+}
+
+
+
+.userlistright ul li+li {
+    margin-top: 10px;
+    border-top: 1px solid #3D3D3D;
+    padding-top: 15px;
+}
+
+.u_chat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.u_chat h4 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 15px 0 0;
+}
+
+.u_allow {
+    background: #198754;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2px 10px;
+}
+
+.u_reject {
+    background: #f00;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2px 10px;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.u_chat_text {
+    margin-right: 15px;
+}
+
+.u_chat button:hover {
+    opacity: 0.8;
+}
+
+.onlineuser .u_chatuser {
+    position: relative;
+}
+
+.onlineuser .u_chatuser::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #198754;
+}
+
+.u_chatuser img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.u_chat02 .u_chat {
+    justify-content: normal;
+}
+
+.u_chat02 .text-truncate {
+    width: auto;
+    margin-left: 15px;
+}
+
+.u_chat02 .u_chat_buttons {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+.topheader {
+    z-index: 999;
+    position: relative;
+}
+
+
+.userchathead {
+    background: #0d6efd;
+    padding: 12px 15px 12px 15px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.userchathead h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.userchathead h3 abbr {
+    position: absolute;
+    right: -38px;
+    top: -2px;
+    background: #fff;
+    color: #f00;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 27px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.closechat {
+    position: absolute;
+    right: -7px;
+    top: -11px;
+    z-index: 99;
+}
+
+.chat_md_open {
+    position: fixed;
+    right: 30px;
+    bottom: 15px;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+.chat_md_icon {
+    position: relative;
+}
+
+.chat_md_icon abbr {
+    position: absolute;
+    right: -7px;
+    top: 0px;
+    background: #f00;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .userlistright {
+        width: 90%;
+        right: 5%;
+    }
+
+    .u_allow,
+    .u_reject {
+        font-size: 10px;
+    }
+
+    .text-truncate {
+        width: 80px;
+    }
+}

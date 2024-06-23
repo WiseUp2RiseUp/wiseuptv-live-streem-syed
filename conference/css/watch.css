@@ -1,0 +1,14 @@
+html, body, .usr-str, #container{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.usr-str, .usr-str video{
+    border-radius: 0px;
+}
+
+.usr-str video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

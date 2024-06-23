@@ -1,0 +1,192 @@
+.topheader {
+    background: #ffffff;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 30%);
+    padding: 10px 0;
+}
+
+.logo {
+    margin: 0 15px 0px 15px;
+}
+
+video {
+    width: 100%;
+    border-radius: 3px;
+}
+
+/* Single video mode */
+.SVM>div:nth-of-type(1) {
+    width: 100%;
+}
+
+/* All video mode */
+.AVM>div,
+.HGM>div,
+.PNP>div,
+.SPM>div {
+    display: unset;
+}
+
+.HGM>div:not(:nth-of-type(2)),
+.HGM>div:not(:nth-of-type(1)),
+.SVM>div:not(:nth-of-type(1)),
+.PNP>div:not(:nth-of-type(2)),
+.PNP>div:not(:nth-of-type(1)) {
+    display: none;
+}
+
+/* Hoset guest mode */
+.HGM>div:nth-of-type(2),
+.HGM>div:nth-of-type(1) {
+    display: unset;
+    width: 49%;
+}
+
+/* Picture in picture mode */
+.PNP>div:nth-of-type(1) {
+    display: unset;
+    width: 99% !important;
+}
+
+.PNP>div:nth-of-type(2) {
+    display: unset;
+    width: 20% !important;
+    float: right !important;
+    margin-top: -56% !important;
+}
+
+/* Selected participant mode */
+.SPM>div:nth-of-type(1) {
+    width: 70% !important;
+}
+
+.SPM>div:not(:nth-of-type(1)) {
+    width: 21% !important;
+}
+
+
+/* New  */
+.SVM div {
+    margin: 1%;
+    width: 98% !important;
+}
+
+.topheader {
+    text-align: center;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/* If 2 video*/
+.videocontainer.HGM div {
+    width: 48%;
+    float: left;
+    margin: 1%;
+}
+
+/* If 3 video*/
+.videocontainer.AVM div,
+.videocontainer.PNP div,
+.videocontainer.SPM div {
+    width: 31.33%;
+    float: left;
+    margin: 1%;
+}
+
+
+@media only screen and (max-width: 1199px) {
+
+    .videocontainer.AVM div,
+    .videocontainer.HGM div,
+    .videocontainer.PNP div,
+    .videocontainer.SPM div {
+        width: 48%;
+        float: left;
+        margin: 1%;
+    }
+
+    .topheader {
+        margin-bottom: 15px;
+    }
+}
+
+/* @media screen and (orientation: portrait) {
+    video {
+      height: 300px !important;
+      width: auto !important;
+      background: black;
+    }
+  } */
+
+/* @media only screen and (max-width: 767px) {
+    .videocontainer.AVM div,
+    .videocontainer.HGM div  {  height: 300px; }
+ } */
+
+.loading-title {
+    margin: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-body {
+    margin-top: 33vh;
+}
+
+.show {
+    display: unset;
+}
+
+.hide,
+.hidden {
+    display: none;
+}
+
+.link {
+    display: none;
+}
+
+#rtsp {
+    width: 75%;
+}
+
+.usr-str {
+    background: black;
+    color: #ffc106;
+    border-radius: 3px;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+.usr-str video{
+    transform: scale(1);
+}
+
+.str-ctrl {
+    width: 100% !important;
+    margin-top: -7px !important;
+    position: relative;
+}
+
+.str-ctrl span {
+    margin-right: 7px;
+}
+
+.str-ctrl span i {
+    cursor: pointer;
+}
+
+.usr-mic,
+.usr-cam {
+    color: #dc3645;
+}
+
+.zin,
+.zot {
+    color: #0dcaf0
+}
+
+.form-range{
+    width: 50% !important;
+    padding-top: 13px !important;
+}

@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Conference</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?v=1.0.37"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css?v=1.0.37"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css?v=1.0.37"
+    />
+    <link rel="stylesheet" href="style.css?v=1.0.37" />
+    <style>
+      .Audiotesting {
+        /* background: #f0f4fd; */
+        text-align: center;
+        border-radius: 3px;
+        left: 10px;
+        top: 10px;
+      }
+      .pids-wrapper {
+        width: 100%;
+      }
+      .pid {
+        width: 5px;
+        height: 21px;
+        display: inline-block;
+        margin: 5px;
+        border-radius: 12px;
+        background: #57eab2;
+      }
+      .setting_box_inn .col-lg-4 {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="video_conference">
+      <div class="video_conference_left">
+        <div class="Audiotesting" style="position: absolute; z-index: 87">
+          <div class="pids-wrapper">
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+          </div>
+        </div>
+
+        <div id="container" class="video_conference_left_top">
+          <video
+            autoplay
+            playsinline="true"
+            muted
+            style="width: 100%; height: 100%; object-fit: cover"
+          ></video>
+        </div>
+
+        <div class="video_conference_left_bottom">
+          <div id="smallVideos" class="video_conference_thumb_box"></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="video_conference_right">
+        <div class="video_conference_right_div">
+          <div class="video_comments d-none" id="commentsbox">
+            <div class="video_conference_right_head">
+              <h2>Comments</h2>
+            </div>
+
+            <ul class="comments_box_ul">
+              <li>
+                <img
+                  src="https://www.pngfind.com/pngs/m/468-4686427_profile-demo-hd-png-download.png"
+                  alt=""
+                  class="comments_profile"
+                />
+                <div class="comments_box">
+                  <p>
+                    <b>Name:</b> Neque porro quisquam est qui dolorem ipsum quia
+                    dolor sit amet, consectetur, adipisci velit... Neque porro
+                    quisquam est qui dolorem ipsum quia dolor sit amet,
+                    consectetur, adipisci velit...
+                  </p>
+                </div>
+              </li>
+              <li>
+                <img
+                  src="https://www.pngfind.com/pngs/m/468-4686427_profile-demo-hd-png-download.png"
+                  alt=""
+                  class="comments_profile"
+                />
+                <div class="comments_box">
+                  <p>
+                    <b>Name:</b> Neque porro quisquam est qui dolorem ipsum quia
+                    dolor sit amet, consectetur, adipisci velit... Neque porro
+                    quisquam est qui dolorem ipsum quia dolor sit amet,
+                    consectetur, adipisci velit...
+                  </p>
+                </div>
+              </li>
+              <li>
+                <img
+                  src="https://www.pngfind.com/pngs/m/468-4686427_profile-demo-hd-png-download.png"
+                  alt=""
+                  class="comments_profile"
+                />
+                <div class="comments_box">
+                  <p>
+                    <b>Name:</b> Neque porro quisquam est qui dolorem ipsum quia
+                    dolor sit amet, consectetur, adipisci velit... Neque porro
+                    quisquam est qui dolorem ipsum quia dolor sit amet,
+                    consectetur, adipisci velit...
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="chat_box d-none" id="chatbox">
+            <div class="video_conference_right_head">
+              <h2>Notifications</h2>
+            </div>
+
+            <div class="userlistinner">
+              <ul class="users-list"></ul>
+            </div>
+          </div>
+          <div class="ipcampbox_setting" id="ipcampbox">
+            <div class="video_conference_right_head">
+              <h2>Settings Panel<span class="session-id"></span></h2>
+            </div>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="home-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#home"
+                  type="button"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >
+                  Video
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="profile-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  Audio
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="contact-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#contact"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Control
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="switching-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#switching"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Switching
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="score-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#score"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Score
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="news-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#news"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  News
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="home"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <div class="setting_box_inn">
+                  <label for="customRange1" class="form-label"
+                    ><b>Zoom Range</b></label
+                  >
+                  <br />
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    step="0.01"
+                    value="1"
+                    style="width: 100%; transform: scaleY(3);"
+                    oninput="zoomChange(this.value);"
+                  />
+                </div>
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Camera</b></label
+                      >
+                      <select id="video-sources" class="form-select">
+                        <option selected>Select video source</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 before-start">
+                      <label for="customRange1" class="form-label mt-2 mt-md-0"
+                        ><b>Resolution</b></label
+                      >
+                      <select class="form-select" id="resolutions">
+                        <option>Select</option>
+                        <option value="LD">Low</option>
+                        <option value="SD">Medium</option>
+                        <option selected value="HD">High</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn before-start">
+                  <label><b>FR - </b> </label>
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input frame-rate"
+                        name="optradio"
+                        value="low"
+                      />
+                      Low
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input frame-rate"
+                        name="optradio"
+                        value="med"
+                      />
+                      Medium
+                    </label>
+                  </div>
+                  <div class="form-check-inline disabled">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input frame-rate"
+                        name="optradio"
+                        value="high"
+                        checked
+                      />
+                      High
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <label for="customRange2" class="form-label"
+                    ><b>Recording </b></label
+                  >
+                  <input
+                    disabled
+                    type="checkbox"
+                    checked
+                    data-toggle="toggle"
+                    data-onstyle="success"
+                    id="recordSession"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label mt-2 mt-md-0"
+                        ><b>Mic</b></label
+                      >
+                      <select id="audio-sources" class="form-select">
+                        <option selected>Select audio source</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label mt-2 mt-md-0"
+                        ><b>Volume</b></label
+                      >
+                      <div class=" ">
+                        <input
+                          type="range"
+                          min="1"
+                          max="100"
+                          value="50"
+                          class="customRange"
+                          id="customRange2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label mt-2 mt-md-0"
+                        ><b>Speaker</b></label
+                      >
+                      <select class="form-select" id="speakers">
+                        <option>Select audio output</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label mt-2 mt-md-0"
+                        ><b>Volume</b></label
+                      >
+                      <div class=" ">
+                        <input
+                          type="range"
+                          min="1"
+                          max="100"
+                          value="50"
+                          class="customRange"
+                          id="customRange2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="contact"
+                role="tabpanel"
+                aria-labelledby="contact-tab"
+              >
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-lg-4 before-start">
+                      <button
+                        id="create"
+                        type="button"
+                        class="btn btn-secondary w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Record
+                      </button>
+                    </div>
+                    <div hidden class="col-lg-4 o-after-start">
+                      <button
+                        id="switch"
+                        type="button"
+                        class="btn btn-success w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Switcher
+                      </button>
+                    </div>
+                    <div class="col-lg-4 o-after-start">
+                      <button
+                        id="link"
+                        type="button"
+                        class="btn btn-primary w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Share
+                      </button>
+                    </div>
+                    <div class="col-lg-4 o-after-start">
+                      <button
+                        id="liveToTv"
+                        type="button"
+                        class="btn btn-danger w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Live to TV
+                      </button>
+                    </div>
+                    <div class="col-lg-4 o-after-start">
+                      <button
+                        id="showMyVideo"
+                        type="button"
+                        class="btn btn-info w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Show my Video
+                      </button>
+                    </div>
+                    <div class="col-lg-4 o-after-start">
+                      <button
+                        id="showAdvertisment"
+                        type="button"
+                        class="btn btn-success w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Show Ads
+                      </button>
+                    </div>
+                    <div class="col-lg-4 after-start">
+                      <button
+                        id="ipcam"
+                        type="button"
+                        class="btn btn-info w-100 d-block mt-2 mt-lg-0"
+                      >
+                        IP-Cam
+                      </button>
+                    </div>
+                    <div class="col-lg-4 o-after-start leave-option">
+                      <button
+                        id="leave"
+                        type="button"
+                        class="btn btn-danger w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Leave
+                      </button>
+                    </div>
+                    <div
+                      class="col-lg-4 o-after-start btn-group p-list mt-1"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Mute/Un-Mute
+                      </button>
+                      <ul id="participants" class="dropdown-menu"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="switching"
+                role="tabpanel"
+                aria-labelledby="switching-tab"
+              >
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <label for="customRange1" class="form-label"
+                      ><b>Stream sources</b></label
+                    >
+                    <div class="col-lg-4">
+                      <button
+                        id="local"
+                        type="button"
+                        class="btn btn-success w-100 d-block mt-2 mt-lg-0 switching"
+                      >
+                        Local
+                      </button>
+                    </div>
+                    <div class="col-lg-4">
+                      <button
+                        id="live"
+                        type="button"
+                        class="btn btn-primary w-100 d-block mt-2 mt-lg-0 switching"
+                      >
+                        Live
+                      </button>
+                    </div>
+                    <div class="col-lg-4">
+                      <button
+                        id="conference"
+                        type="button"
+                        class="btn btn-info w-100 d-block mt-2 mt-lg-0 switching"
+                      >
+                        Conference
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <label for="customRange1" class="form-label"
+                      ><b>Advertisments</b></label
+                    >
+                    <div class="col-lg-4">
+                      <button
+                        id="ad1"
+                        type="button"
+                        class="btn btn-success w-100 d-block mt-2 mt-lg-0 ads"
+                      >
+                        Ad-1
+                      </button>
+                    </div>
+                    <div class="col-lg-4">
+                      <button
+                        id="ad2"
+                        type="button"
+                        class="btn btn-primary w-100 d-block mt-2 mt-lg-0 ads"
+                      >
+                        Ad-2
+                      </button>
+                    </div>
+                    <div class="col-lg-4">
+                      <button
+                        id="ad3"
+                        type="button"
+                        class="btn btn-info w-100 d-block mt-2 mt-lg-0 ads"
+                      >
+                        Ad-3
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="score"
+                role="tabpanel"
+                aria-labelledby="score-tab"
+              >
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Team A</b></label
+                      >
+                      <input
+                        id="nameTeamA"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="Name"
+                      />
+                      <input
+                        id="scoreTeamA"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Score"
+                      />
+                      <input
+                        id="foulsTeamA"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Fouls"
+                      />
+                      <input
+                        id="timeoutTeamA"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Timeout"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Team B</b></label
+                      >
+                      <input
+                        id="nameTeamB"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="Name"
+                      />
+                      <input
+                        id="scoreTeamB"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Score"
+                      />
+                      <input
+                        id="foulsTeamB"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Fouls"
+                      />
+                      <input
+                        id="timeoutTeamB"
+                        type="number"
+                        class="form-select teamInput"
+                        placeholder="Timeout"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row" style="place-content: center">
+                    <div class="col-lg-4">
+                      <button
+                        id="updateBoard"
+                        type="button"
+                        class="btn btn-danger w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="news"
+                role="tabpanel"
+                aria-labelledby="news-tab"
+              >
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Headline 1</b></label
+                      >
+                      <input
+                        id="headline1"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="News 1"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Headline 2</b></label
+                      >
+                      <input
+                        id="headline2"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="News 2"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Headline 3</b></label
+                      >
+                      <input
+                        id="headline3"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="News 3"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Headline 4</b></label
+                      >
+                      <input
+                        id="headline4"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="News 4"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="customRange1" class="form-label"
+                        ><b>Headline 5</b></label
+                      >
+                      <input
+                        id="headline5"
+                        type="text"
+                        class="form-select teamInput"
+                        placeholder="News 5"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting_box_inn">
+                  <div class="row" style="place-content: center">
+                    <div class="col-lg-4">
+                      <button
+                        id="updateNews"
+                        type="button"
+                        class="btn btn-danger w-100 d-block mt-2 mt-lg-0"
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /box chat-->
+        </div>
+      </div>
+
+      <div class="button_groups">
+        <div class="brand_logo">
+          <img
+            src="https://wiseup.club/themes/wiseup/img/logo.png"
+            alt="Logo"
+          />
+        </div>
+
+        <a href="javascript:void(0);" id="thumbboxclick">
+          <i class="fa-solid fa-grid"></i
+        ></a>
+        <a href="javascript:void(0);" id="fullboxclick2nd"
+          ><i class="fa-solid fa-expand"></i
+        ></a>
+
+        <a href="javascript:void(0);" id="chatcboxclick"
+          ><abbr class="user-count">0</abbr><i class="fa-solid fa-bell"></i
+        ></a>
+        <a href="javascript:void(0);" id="commentsboxclick"
+          ><i class="fa-solid fa-message-plus"></i
+        ></a>
+
+        <a href="javascript:void(0);" id="ipcampboxclick" class="active">
+          <i class="fa-duotone fa-gear"></i
+        ></a>
+      </div>
+
+      <div class="video_small_thumbnill d-none" id="videothumbnill">
+        <div class="video_small_thumbnillinner">
+          <div class="close_thumbnillinner">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="video_small_fullnill d-none" id="videofullnill">
+        <div class="video_small_fullinner">
+          <div class="close_fullinner">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+          <div class="open_fullinnerlist"><i class="fa-solid fa-grid"></i></div>
+
+          <div class="video_full_thumbnill_box"></div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="close_fullinner2"><i class="fa-solid fa-circle-xmark"></i></div>
+
+    <!-- Loading modal -->
+    <div
+      id="loadingModal"
+      class="modal fade bd-loading-modal-lg"
+      role="dialog"
+      data-backdrop="static"
+      data-bs-backdrop="static"
+      data-keyboard="false"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-sm modal-body">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <span class="text-info loading-title">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      aria-live="polite"
+      aria-atomic="true"
+      class="d-flex justify-content-center align-items-center w-100"
+    >
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body"></div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      id="channelModel"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#chModal"
+      style="display: none"
+    >
+      Launch Channel modal
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="chModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Preferences
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h6 class="modal-title">
+              Stream Channel
+            </h6>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="0"
+                  name="1"
+                  checked
+                  aria-label="..."
+                />
+                Default
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="1"
+                  name="1"
+                  aria-label="..."
+                />
+                Cayman Sports
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="2"
+                  name="1"
+                  aria-label="..."
+                />
+                Front Stage
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="3"
+                  name="1"
+                  aria-label="..."
+                />
+                Bigger Picture
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="4"
+                  name="1"
+                  aria-label="..."
+                />
+                345 Business Spotlight
+              </li>
+            </ul>
+          </div>
+          <div class="modal-body">
+            <h6 class="modal-title">
+              Countdown time
+            </h6>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="30"
+                  name="2"
+                  aria-label="..."
+                />
+                30 Sec
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="60"
+                  checked
+                  name="2"
+                  aria-label="..."
+                />
+                60 Sec (Default value)
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="radio"
+                  value="180"
+                  name="2"
+                  aria-label="..."
+                />
+                3 Min
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Skip
+            </button>
+            <button type="button" id="chDone" class="btn btn-primary">
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Button live modal -->
+    <button
+      type="button"
+      id="liveModalBtn"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#liveModal"
+      style="display: none"
+    >
+      Launch Live modal
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="liveModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Preferences
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h3 class="modal-title">
+              Go live on timeline after recording starts?
+            </h3>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button type="button" id="liveDone" class="btn btn-primary">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Button hide presenter modal -->
+    <button
+      type="button"
+      id="HPModalBtn"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#HPModal"
+      style="display: none"
+    >
+      Hide Presenter
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="HPModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      style="z-index: 989898;"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Preferences
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h3 class="modal-title">
+              Hide presenter on TV?
+            </h3>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button type="button" id="HPDone" class="btn btn-primary">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?v=1.0.37"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?v=1.0.37"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css?v=1.0.37"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js?v=1.0.37"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js?v=1.0.37"
+      integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/browser.js?v=1.0.37"></script>
+    <script src="js/vars.js?v=1.0.37"></script>
+    <script src="js/common.js?v=1.0.37"></script>
+    <script src="js/loading.js?v=1.0.37"></script>
+    <script src="js/client.js?v=1.0.37"></script>
+    <script src="js/index.js?v=1.0.37"></script>
+    <script src="js/switching.js?v=1.0.37"></script>
+    <script src="js/news.js?v=1.0.37"></script>
+    <script src="js/score.js?v=1.0.31"></script>
+  </body>
+</html>
